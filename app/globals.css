@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #fdfbf7;
+  --color-cream-2: #efe9dd;
+  --color-cream-3: #f2ede2;
+  --color-ink: #3a1f16;
+  --color-ink-soft: #55372a;
+  --color-ink-muted: #5c5346;
+  --color-ink-faint: #8a7f6e;
+  --color-gold: #c9a86a;
+  --color-gold-dark: #8a6b3f;
+  --color-gold-strong: #b5854a;
+  --color-wine-red: #7a3a2a;
+  --color-border: #e2dccd;
+  --color-sage: #55613d;
+  --color-sage-tint: #eef1e6;
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-2: var(--color-cream-2);
+  --color-cream-3: var(--color-cream-3);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-gold: var(--color-gold);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-strong: var(--color-gold-strong);
+  --color-wine-red: var(--color-wine-red);
+  --color-border: var(--color-border);
+  --color-sage: var(--color-sage);
+  --color-sage-tint: var(--color-sage-tint);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+@keyframes carousel-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
