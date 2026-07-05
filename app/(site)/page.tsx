@@ -7,7 +7,6 @@ import WineCarousel from "@/components/WineCarousel";
 import FarmProductCard from "@/components/FarmProductCard";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import VineDecoration from "@/components/VineDecoration";
 import { PinIcon, CalendarIcon, LeafIcon, ToolsIcon, PackageIcon } from "@/components/icons";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -40,56 +39,56 @@ export default async function HomePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-cream-2">
-        <VineDecoration className="pointer-events-none absolute -right-16 -top-10 hidden h-64 w-[30rem] text-ink-soft/15 md:block" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-8 md:grid-cols-2 md:py-20">
-          <div>
-            <div className="mb-3 text-xs tracking-[0.15em] text-gold-dark">
+      <section className="relative flex min-h-[420px] items-center overflow-hidden md:min-h-[560px]">
+        <div className="absolute inset-0">
+          {announcement?.image ? (
+            <Image
+              src={urlFor(announcement.image).width(1920).fit("max").url()}
+              alt={announcement.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          ) : (
+            <Image src="/vinohrady-uvod.jpg" alt="Vinice Metroflora" fill priority sizes="100vw" className="object-cover" />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/10" />
+        </div>
+
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-14 sm:px-8">
+          <div className="max-w-lg">
+            <div className="mb-3 text-xs tracking-[0.15em] text-gold">
               RODINNÉ VINAŘSTVÍ · SLOVÁCKO
             </div>
-            <h1 className="mb-4 font-serif text-3xl leading-tight text-ink sm:text-4xl">
+            <h1 className="mb-4 font-serif text-3xl leading-tight text-cream sm:text-4xl">
               {announcement?.title ?? defaultTitle}
             </h1>
-            <p className="mb-6 max-w-md text-sm leading-relaxed text-ink-muted">
+            <p className="mb-6 max-w-md text-sm leading-relaxed text-cream-2/90">
               {announcement?.text ?? defaultText}
             </p>
             <div className="flex flex-wrap gap-3">
               {hasCustomCta ? (
                 <Link
                   href={announcement!.ctaHref!}
-                  className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream"
+                  className="rounded-md bg-cream px-6 py-3 text-sm font-medium text-ink"
                 >
                   {announcement!.ctaLabel}
                 </Link>
               ) : (
                 <>
-                  <Link href="/eshop" className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream">
+                  <Link href="/eshop" className="rounded-md bg-cream px-6 py-3 text-sm font-medium text-ink">
                     Nakoupit vína
                   </Link>
                   <Link
                     href="/o-vinarstvi"
-                    className="rounded-md border border-border px-6 py-3 text-sm text-ink"
+                    className="rounded-md border border-cream-2/50 px-6 py-3 text-sm text-cream"
                   >
                     Náš příběh
                   </Link>
                 </>
               )}
             </div>
-          </div>
-          <div className="relative h-64 overflow-hidden rounded-xl bg-cream-3 md:h-72">
-            {announcement?.image ? (
-              <Image
-                src={urlFor(announcement.image).width(900).fit("max").url()}
-                alt={announcement.title}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center">
-                <span className="text-sm text-ink-faint">foto: vinice Kopce</span>
-              </div>
-            )}
           </div>
         </div>
       </section>
