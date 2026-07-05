@@ -35,7 +35,7 @@ export default function PokladnaPage() {
           potvrzení) se dokončuje ve druhé fázi projektu, jakmile bude nastaven bankovní účet pro
           QR platby a e-mailová služba. Zatím nás prosím do dokončení této funkce kontaktujte přímo
           telefonicky — viz stránka{" "}
-          <Link href="/kontakt" className="underline">
+          <Link href="/#kontakt" className="underline">
             kontakt
           </Link>
           .

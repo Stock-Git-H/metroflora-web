@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", label: "Domů" },
   { href: "/o-vinarstvi", label: "O vinařství" },
   { href: "/eshop", label: "Eshop" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/#kontakt", label: "Kontakt" },
 ];
 
 export default function Header() {

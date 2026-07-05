@@ -28,7 +28,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-1">
             <li><Link href="/eshop" className="hover:text-cream">Eshop</Link></li>
             <li><Link href="/o-vinarstvi" className="hover:text-cream">O vinařství</Link></li>
-            <li><Link href="/kontakt" className="hover:text-cream">Kontakt</Link></li>
+            <li><Link href="/#kontakt" className="hover:text-cream">Kontakt</Link></li>
             <li><Link href="/doprava-a-platba" className="hover:text-cream">Doprava a platba</Link></li>
           </ul>
         </div>

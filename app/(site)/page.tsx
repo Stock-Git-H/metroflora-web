@@ -6,8 +6,8 @@ import { getActiveAnnouncement } from "@/lib/announcement";
 import WineCarousel from "@/components/WineCarousel";
 import FarmProductCard from "@/components/FarmProductCard";
 import Reveal from "@/components/Reveal";
-import CountUp from "@/components/CountUp";
-import { PinIcon, CalendarIcon, LeafIcon, ToolsIcon, PackageIcon } from "@/components/icons";
+import ContactForm from "@/components/ContactForm";
+import { PackageIcon } from "@/components/icons";
 import { urlFor } from "@/sanity/lib/image";
 
 const farmGridCols: Record<number, string> = {
@@ -128,30 +128,45 @@ export default async function HomePage() {
         </section>
       )}
 
-      <section className="grid grid-cols-2 gap-6 bg-cream-2 px-4 py-10 sm:px-8 md:grid-cols-4">
-        <Reveal className="flex flex-col items-center gap-2 text-center">
-          <PinIcon className="text-gold-dark" />
-          <div className="font-serif text-lg text-ink">
-            <CountUp value={10} suffix=" ha" />
+      <section id="kontakt" className="scroll-mt-20 bg-cream-2">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-8 md:grid-cols-2">
+          <div>
+            <div className="mb-2 text-xs tracking-[0.15em] text-gold-dark">KONTAKT</div>
+            <h2 className="mb-6 font-serif text-2xl text-ink">Spojte se s námi</h2>
+            <div className="space-y-4">
+              <div className="rounded-xl border border-border bg-cream p-5">
+                <h3 className="mb-2 font-serif text-base text-ink">METROFLORA s.r.o.</h3>
+                <div className="space-y-1 text-sm text-ink-muted">
+                  <p>Dubňanská 376, 696 05 Milotice</p>
+                  <p>Sídlo: Záluží 448, Milotice 696 05</p>
+                  <p>IČO: 25587846</p>
+                  <p>Spisová značka: C 35459, Krajský soud v Brně</p>
+                </div>
+              </div>
+              <div className="rounded-xl border border-border bg-cream p-5">
+                <h3 className="mb-2 font-serif text-base text-ink">Telefon</h3>
+                <div className="space-y-1 text-sm text-ink-muted">
+                  <p>Obecné dotazy: +420 602 766 560</p>
+                  <p>Prodej vína — Tomáš Gregorovič: +420 602 524 552</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="text-xs text-ink-soft">vinic v Miloticích</div>
-        </Reveal>
-        <Reveal className="flex flex-col items-center gap-2 text-center">
-          <CalendarIcon className="text-gold-dark" />
-          <div className="font-serif text-lg text-ink">
-            <CountUp value={2007} />
+          <div>
+            <h3 className="mb-4 font-serif text-lg text-ink">Napište nám poptávku</h3>
+            <ContactForm />
           </div>
-          <div className="text-xs text-ink-soft">založení vinařství</div>
-        </Reveal>
-        <Reveal className="flex flex-col items-center gap-2 text-center">
-          <LeafIcon className="text-gold-dark" />
-          <div className="text-xs text-ink-soft">Integrovaná produkce</div>
-        </Reveal>
-        <Reveal className="flex flex-col items-center gap-2 text-center">
-          <ToolsIcon className="text-gold-dark" />
-          <div className="text-xs text-ink-soft">Technologie Della Toffola</div>
-        </Reveal>
+        </div>
       </section>
+
+      <div className="relative h-80 w-full sm:h-96">
+        <iframe
+          title="Mapa — Dubňanská 376, Milotice"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=17.1206502,48.9496895,17.1326502,48.9576895&marker=48.9536895,17.1266502"
+          loading="lazy"
+          className="h-full w-full border-0"
+        />
+      </div>
     </div>
   );
 }
