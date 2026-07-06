@@ -29,7 +29,7 @@ export default function FarmProductCard({ product, size }: { product: FarmProduc
         size === "lg" ? "md:grid md:grid-cols-2" : ""
       }`}
     >
-      <div className={`relative bg-cream-3 ${imageAspect[size]}`}>
+      <div className={`relative bg-cream ${imageAspect[size]}`}>
         {product.image ? (
           <Image
             src={urlFor(product.image).width(900).fit("max").url()}
@@ -48,7 +48,7 @@ export default function FarmProductCard({ product, size }: { product: FarmProduc
           </div>
         )}
       </div>
-      <div className={`p-4 ${size === "lg" ? "md:flex md:flex-col md:justify-center md:p-8" : ""}`}>
+      <div className={`bg-cream-3 p-4 ${size === "lg" ? "md:flex md:flex-col md:justify-center md:p-8" : ""}`}>
         <div className={`mb-1 font-serif text-ink ${nameSize[size]}`}>{product.name}</div>
         {product.description && (
           <p className={`mb-3 leading-relaxed text-ink-muted ${descSize[size]}`}>{product.description}</p>
