@@ -4,6 +4,7 @@ const wineFields = groq`
   "slug": slug.current,
   name,
   vintage,
+  sweetness,
   category,
   harvestType,
   price,

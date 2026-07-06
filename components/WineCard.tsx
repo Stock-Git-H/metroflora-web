@@ -32,19 +32,17 @@ export default function WineCard({ wine }: { wine: Wine }) {
             {wine.name} {wine.vintage}
           </div>
         </Link>
-        <div className="mt-2 flex items-center justify-between gap-2">
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-[15px] font-medium text-ink">{wine.price} Kč</span>
-              {onSale && (
-                <span className="text-xs text-ink-faint line-through">{wine.originalPrice} Kč</span>
-              )}
-            </div>
-            <div className="text-[10px] text-ink-faint">vč. DPH</div>
+        <div className="mt-2">
+          <div className="flex items-baseline gap-2">
+            <span className="whitespace-nowrap text-[15px] font-medium text-ink">{wine.price} Kč</span>
+            {onSale && (
+              <span className="whitespace-nowrap text-xs text-ink-faint line-through">{wine.originalPrice} Kč</span>
+            )}
           </div>
+          <div className="text-[10px] text-ink-faint">vč. DPH</div>
           <button
             onClick={() => addItem({ slug: wine.slug, name: wine.name, vintage: wine.vintage, price: wine.price })}
-            className="rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-cream"
+            className="mt-2 w-full rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-cream"
           >
             Přidat
           </button>

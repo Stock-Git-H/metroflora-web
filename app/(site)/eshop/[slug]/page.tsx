@@ -53,9 +53,14 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
             {categoryLabels[wine.category].toUpperCase()}
             {wine.harvestType ? ` · ${wine.harvestType.toUpperCase()}` : ""}
           </div>
-          <h1 className="mb-4 font-serif text-3xl text-ink">
+          <h1 className="mb-2 font-serif text-3xl text-ink">
             {wine.name} {wine.vintage}
           </h1>
+          {wine.sweetness && (
+            <div className="mb-4 inline-block rounded-full bg-cream-3 px-3 py-1 text-xs capitalize text-ink-soft">
+              {wine.sweetness}
+            </div>
+          )}
           <div className="mb-1 flex items-center justify-between gap-3">
             <div className="flex items-baseline gap-3">
               <span className="text-2xl font-medium text-ink">{wine.price} Kč</span>

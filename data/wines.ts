@@ -2,11 +2,13 @@ import type { SanityImageSource } from "@sanity/image-url";
 
 export type WineCategory = "bile" | "cervene" | "rose" | "frizzante";
 export type HarvestType = "pozdní sběr" | "výběr z hroznů" | "výběr z bobulí" | null;
+export type Sweetness = "suché" | "polosuché" | "polosladké" | "sladké" | null;
 
 export interface Wine {
   slug: string;
   name: string;
   vintage: number;
+  sweetness?: Sweetness;
   category: WineCategory;
   harvestType: HarvestType;
   price: number;

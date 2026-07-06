@@ -15,6 +15,13 @@ export default defineType({
   fields: [
     defineField({ name: "name", title: "Název odrůdy / vína", type: "string", validation: (r) => r.required() }),
     defineField({ name: "vintage", title: "Ročník", type: "number", validation: (r) => r.required() }),
+    defineField({
+      name: "sweetness",
+      title: "Chuťová kategorie",
+      type: "string",
+      options: { list: ["suché", "polosuché", "polosladké", "sladké"] },
+      validation: (r) => r.required(),
+    }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: (doc) => `${doc.name}-${doc.vintage}` }, validation: (r) => r.required() }),
     defineField({
       name: "active",
