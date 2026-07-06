@@ -20,7 +20,7 @@ export default function DopravaAPlatbaPage() {
           <li>
             <span className="font-medium text-ink">Přepravní služba TOPTRANS</span> — vína
             expedujeme pouze po celých kartonech (6 lahví), s výjimkou akčních setů. Cena dopravy
-            je 80 Kč bez DPH za karton a počítá se automaticky podle počtu objednaných kartonů.
+            je 97 Kč s DPH za karton a počítá se automaticky podle počtu objednaných kartonů.
           </li>
         </ul>
       </div>

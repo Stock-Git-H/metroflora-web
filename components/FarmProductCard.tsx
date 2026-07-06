@@ -56,6 +56,7 @@ export default function FarmProductCard({ product, size }: { product: FarmProduc
         <div className="font-medium text-ink">
           {product.price} Kč <span className="text-ink-faint">/ {product.unit}</span>
         </div>
+        <div className="text-[10px] text-ink-faint">vč. DPH</div>
       </div>
     </div>
   );

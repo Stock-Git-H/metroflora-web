@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCart, BOTTLES_PER_CARTON } from "@/lib/cart-context";
+import { splitVat } from "@/lib/vat";
 
 type Doprava = "odber" | "toptrans";
 type Platba = "hotove" | "dobirka" | "prevodem";
@@ -14,6 +15,7 @@ export default function PokladnaPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const cartonBlocked = doprava === "toptrans" && totalBottles % BOTTLES_PER_CARTON !== 0;
+  const { net, vat, gross } = splitVat(totalPrice);
 
   if (items.length === 0) {
     return (
@@ -84,7 +86,7 @@ export default function PokladnaPage() {
                 checked={doprava === "toptrans"}
                 onChange={() => setDoprava("toptrans")}
               />
-              Přepravní služba TOPTRANS (80 Kč bez DPH / karton)
+              Přepravní služba TOPTRANS (97 Kč s DPH / karton)
             </label>
           </div>
           {cartonBlocked && (
@@ -134,9 +136,22 @@ export default function PokladnaPage() {
           )}
         </fieldset>
 
-        <div className="flex items-center justify-between rounded-xl bg-cream-3 px-5 py-4">
-          <div className="text-sm text-ink-muted">{totalBottles} lahví</div>
-          <div className="font-serif text-xl text-ink">{totalPrice} Kč</div>
+        <div className="rounded-xl bg-cream-3 px-5 py-4">
+          <div className="mb-2 text-sm text-ink-muted">{totalBottles} lahví</div>
+          <div className="space-y-1 border-t border-border/60 pt-3 text-sm text-ink-muted">
+            <div className="flex justify-between">
+              <span>Cena bez DPH</span>
+              <span>{net} Kč</span>
+            </div>
+            <div className="flex justify-between">
+              <span>DPH 21 %</span>
+              <span>{vat} Kč</span>
+            </div>
+            <div className="flex justify-between pt-1 font-serif text-xl text-ink">
+              <span>Celkem s DPH</span>
+              <span>{gross} Kč</span>
+            </div>
+          </div>
         </div>
 
         <button

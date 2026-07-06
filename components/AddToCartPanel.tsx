@@ -23,7 +23,7 @@ export default function AddToCartPanel({ wine }: { wine: Wine }) {
         }}
         className="w-full rounded-md bg-ink px-5 py-3 text-sm font-medium text-cream"
       >
-        Přidat do košíku — {quantity * wine.price} Kč
+        Přidat do košíku — {quantity * wine.price} Kč vč. DPH
       </button>
       {added && <p className="mt-2 text-xs text-ink-muted">Přidáno do košíku.</p>}
       <p className="mt-3 text-xs text-ink-faint">

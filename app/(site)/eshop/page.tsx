@@ -28,7 +28,8 @@ export default async function EshopPage({
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-8">
       <div className="mb-8">
         <div className="mb-2 text-xs tracking-[0.15em] text-gold-dark">ESHOP</div>
-        <h1 className="font-serif text-3xl text-ink">Naše vína</h1>
+        <h1 className="mb-2 font-serif text-3xl text-ink">Naše vína</h1>
+        <p className="text-xs text-ink-faint">Všechny ceny jsou uvedeny včetně DPH 21 %.</p>
       </div>
       <WineCatalog wines={wines} initialCategory={initialCategory} initialHarvestType={initialHarvestType} />
     </div>

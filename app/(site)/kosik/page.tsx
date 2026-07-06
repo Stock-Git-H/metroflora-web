@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCart, BOTTLES_PER_CARTON } from "@/lib/cart-context";
 import QuantityStepper from "@/components/QuantityStepper";
+import { splitVat } from "@/lib/vat";
 
 export default function KosikPage() {
   const { items, setQuantity, removeItem, totalBottles, totalPrice } = useCart();
@@ -20,6 +21,7 @@ export default function KosikPage() {
   }
 
   const notFullCarton = totalBottles % BOTTLES_PER_CARTON !== 0;
+  const { net, vat, gross } = splitVat(totalPrice);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-8">
@@ -32,7 +34,7 @@ export default function KosikPage() {
               <div className="text-sm font-medium text-ink">
                 {item.name} {item.vintage}
               </div>
-              <div className="text-xs text-ink-faint">{item.price} Kč / lahev</div>
+              <div className="text-xs text-ink-faint">{item.price} Kč / lahev, vč. DPH</div>
             </div>
             <QuantityStepper value={item.quantity} onChange={(q) => setQuantity(item.slug, q)} />
             <div className="w-20 text-right text-sm font-medium text-ink">
@@ -49,12 +51,25 @@ export default function KosikPage() {
       </div>
 
       <div className="mt-6 rounded-xl bg-cream-3 px-5 py-4">
-        <div className="flex items-center justify-between">
-          <div className="text-sm text-ink-muted">{totalBottles} lahví</div>
-          <div className="font-serif text-xl text-ink">{totalPrice} Kč</div>
+        <div className="mb-2 flex items-center justify-between text-sm">
+          <div className="text-ink-muted">{totalBottles} lahví</div>
+        </div>
+        <div className="space-y-1 border-t border-border/60 pt-3 text-sm text-ink-muted">
+          <div className="flex justify-between">
+            <span>Cena bez DPH</span>
+            <span>{net} Kč</span>
+          </div>
+          <div className="flex justify-between">
+            <span>DPH 21 %</span>
+            <span>{vat} Kč</span>
+          </div>
+          <div className="flex justify-between pt-1 font-serif text-xl text-ink">
+            <span>Celkem s DPH</span>
+            <span>{gross} Kč</span>
+          </div>
         </div>
         {notFullCarton && (
-          <div className="mt-2 text-xs text-gold-dark">
+          <div className="mt-3 text-xs text-gold-dark">
             Pro dopravu přepravní službou je nutný násobek {BOTTLES_PER_CARTON} lahví celkem.
           </div>
         )}

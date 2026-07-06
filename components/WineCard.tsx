@@ -33,11 +33,14 @@ export default function WineCard({ wine }: { wine: Wine }) {
           </div>
         </Link>
         <div className="mt-2 flex items-center justify-between gap-2">
-          <div className="flex items-baseline gap-2">
-            <span className="text-[15px] font-medium text-ink">{wine.price} Kč</span>
-            {onSale && (
-              <span className="text-xs text-ink-faint line-through">{wine.originalPrice} Kč</span>
-            )}
+          <div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-[15px] font-medium text-ink">{wine.price} Kč</span>
+              {onSale && (
+                <span className="text-xs text-ink-faint line-through">{wine.originalPrice} Kč</span>
+              )}
+            </div>
+            <div className="text-[10px] text-ink-faint">vč. DPH</div>
           </div>
           <button
             onClick={() => addItem({ slug: wine.slug, name: wine.name, vintage: wine.vintage, price: wine.price })}
