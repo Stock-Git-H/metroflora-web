@@ -4,6 +4,7 @@ import { categoryLabels } from "@/data/wines";
 import AddToCartPanel from "@/components/AddToCartPanel";
 import WineThumb from "@/components/WineThumb";
 import NutritionButton from "@/components/NutritionButton";
+import WineNeighborNav from "@/components/WineNeighborNav";
 import { CrystalIcon, ThermometerIcon, DropletWarningIcon, PinIcon } from "@/components/icons";
 
 export async function generateStaticParams() {
@@ -13,8 +14,13 @@ export async function generateStaticParams() {
 
 export default async function WineDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const wine = await getWineBySlug(slug);
+  const [wine, allWines] = await Promise.all([getWineBySlug(slug), getAllWines()]);
   if (!wine) notFound();
+
+  const currentIndex = allWines.findIndex((w) => w.slug === slug);
+  const prevWine = currentIndex > 0 ? allWines[currentIndex - 1] : null;
+  const nextWine =
+    currentIndex >= 0 && currentIndex < allWines.length - 1 ? allWines[currentIndex + 1] : null;
 
   const onSale = typeof wine.originalPrice === "number" && wine.originalPrice > wine.price;
 
@@ -28,7 +34,9 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
   ].filter((row): row is [string, string] => row !== null);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
+    <>
+      <WineNeighborNav prev={prevWine} next={nextWine} />
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
       <div className="grid gap-10 md:grid-cols-2">
         <div>
           <WineThumb wine={wine} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[2/3]" />
@@ -95,6 +103,7 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
