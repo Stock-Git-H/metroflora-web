@@ -18,7 +18,7 @@ export default function WineCard({ wine }: { wine: Wine }) {
   const onSale = typeof wine.originalPrice === "number" && wine.originalPrice > wine.price;
 
   return (
-    <div className="flex gap-3 rounded-xl border border-border p-3">
+    <div className="flex h-full gap-3 rounded-xl border border-border p-3">
       <Link href={`/eshop/${wine.slug}`} className="shrink-0 self-stretch">
         <WineThumb wine={wine} sizes="96px" className="h-full w-24" />
       </Link>
