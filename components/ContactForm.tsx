@@ -43,7 +43,7 @@ export default function ContactForm() {
         className="w-full rounded-md border border-border px-3 py-2 text-sm"
       />
       <button type="submit" className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream">
-        Odeslat poptávku
+        Odeslat zprávu
       </button>
     </form>
   );
