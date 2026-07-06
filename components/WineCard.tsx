@@ -19,13 +19,14 @@ export default function WineCard({ wine }: { wine: Wine }) {
 
   return (
     <div className="flex gap-3 rounded-xl border border-border p-3">
-      <Link href={`/eshop/${wine.slug}`} className="shrink-0">
-        <WineThumb wine={wine} sizes="96px" className="w-24 aspect-[2/3]" />
+      <Link href={`/eshop/${wine.slug}`} className="shrink-0 self-stretch">
+        <WineThumb wine={wine} sizes="96px" className="h-full w-24" />
       </Link>
       <div className="flex flex-1 flex-col justify-between">
         <Link href={`/eshop/${wine.slug}`}>
           <div className={`mb-1 text-[10px] tracking-wide ${categoryColor[wine.category]}`}>
             {categoryLabels[wine.category].toUpperCase()}
+            {wine.sweetness ? ` · ${wine.sweetness.toUpperCase()}` : ""}
             {wine.harvestType ? ` · ${wine.harvestType.toUpperCase()}` : ""}
           </div>
           <div className="text-sm font-medium text-ink">
