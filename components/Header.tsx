@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart-context";
 
 const navLinks = [
@@ -17,15 +17,43 @@ const PHONE = "+420 602 766 560";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { totalBottles } = useCart();
   const pathname = usePathname();
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="border-b border-border bg-cream">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8">
+    <header
+      className={`sticky top-0 z-40 border-b border-border bg-cream transition-shadow duration-300 ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between px-4 transition-all duration-300 sm:px-8 ${
+          scrolled ? "py-2" : "py-4"
+        }`}
+      >
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Metroflora" width={60} height={60} />
-          <span className="font-serif text-2xl font-bold tracking-wide text-ink">METROFLORA</span>
+          <Image
+            src="/logo.svg"
+            alt="Metroflora"
+            width={60}
+            height={60}
+            className={`transition-all duration-300 ${scrolled ? "h-10 w-10" : "h-[60px] w-[60px]"}`}
+          />
+          <span
+            className={`font-serif font-bold tracking-wide text-ink transition-all duration-300 ${
+              scrolled ? "text-lg" : "text-2xl"
+            }`}
+          >
+            METROFLORA
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm text-ink-soft md:flex">
