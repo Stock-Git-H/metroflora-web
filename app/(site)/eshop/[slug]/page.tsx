@@ -20,7 +20,6 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
 
   const details: Array<[string, string]> = [
     typeof wine.bottleVolume === "number" ? ["Objem lahve", `${wine.bottleVolume} l`] : null,
-    typeof wine.bottleWeight === "number" ? ["Hmotnost lahve", `${wine.bottleWeight} g`] : null,
     typeof wine.alcoholPercent === "number" ? ["Obsah alkoholu", `${wine.alcoholPercent} % obj.`] : null,
     typeof wine.totalAcids === "number" ? ["Veškeré kyseliny", `${wine.totalAcids} g/l`] : null,
     typeof wine.sugarFreeExtract === "number" ? ["Bezcukerný extrakt", `${wine.sugarFreeExtract} g/l`] : null,

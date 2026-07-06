@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCart, BOTTLES_PER_CARTON } from "@/lib/cart-context";
 import QuantityStepper from "@/components/QuantityStepper";
+import CartonSummary from "@/components/CartonSummary";
 import { splitVat } from "@/lib/vat";
 
 export default function KosikPage() {
@@ -80,6 +81,8 @@ export default function KosikPage() {
           Pokračovat k objednávce
         </Link>
       </div>
+
+      <CartonSummary totalBottles={totalBottles} />
     </div>
   );
 }

@@ -17,7 +17,6 @@ export interface Wine {
   image?: SanityImageSource;
   nutritionImage?: SanityImageSource;
   bottleVolume?: number;
-  bottleWeight?: number;
   alcoholPercent?: number;
   totalAcids?: number;
   sugarFreeExtract?: number;

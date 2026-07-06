@@ -74,7 +74,6 @@ export default defineType({
     defineField({ name: "soldOut", title: "Vyprodáno", type: "boolean", initialValue: false }),
 
     defineField({ name: "bottleVolume", title: "Objem lahve (l)", type: "number", fieldset: "dalsiInformace" }),
-    defineField({ name: "bottleWeight", title: "Hmotnost lahve (g)", type: "number", fieldset: "dalsiInformace" }),
     defineField({ name: "alcoholPercent", title: "Obsah alkoholu (% obj.)", type: "number", fieldset: "dalsiInformace" }),
     defineField({ name: "totalAcids", title: "Veškeré kyseliny (g/l)", type: "number", fieldset: "dalsiInformace" }),
     defineField({ name: "sugarFreeExtract", title: "Bezcukerný extrakt (g/l)", type: "number", fieldset: "dalsiInformace" }),

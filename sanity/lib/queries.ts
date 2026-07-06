@@ -14,7 +14,6 @@ const wineFields = groq`
   image,
   nutritionImage,
   bottleVolume,
-  bottleWeight,
   alcoholPercent,
   totalAcids,
   sugarFreeExtract,
