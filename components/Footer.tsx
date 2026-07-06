@@ -9,14 +9,14 @@ export default function Footer() {
     <footer className="mt-auto bg-ink text-cream-2">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-8 md:grid-cols-4">
         <div>
-          <div className="mb-3 font-serif text-lg">Vinařství Metroflora</div>
+          <div className="mb-3 font-serif text-lg font-bold">Vinařství Metroflora</div>
           <p className="text-sm leading-relaxed text-cream-2/80">
             METROFLORA s.r.o. — rodinné vinařství v Miloticích u Kyjova, Slovácká podoblast.
           </p>
         </div>
 
         <div className="text-sm leading-relaxed text-cream-2/80">
-          <div className="mb-3 font-serif text-base text-cream">Kontakt</div>
+          <div className="mb-3 font-serif text-base font-bold text-cream">Kontakt</div>
           <p>Dubňanská 376, 696 05 Milotice</p>
           <p>IČO: 25587846</p>
           <p>Tel.: +420 602 766 560</p>
@@ -24,7 +24,7 @@ export default function Footer() {
         </div>
 
         <div className="text-sm leading-relaxed text-cream-2/80">
-          <div className="mb-3 font-serif text-base text-cream">Odkazy</div>
+          <div className="mb-3 font-serif text-base font-bold text-cream">Odkazy</div>
           <ul className="flex flex-col gap-1">
             <li><Link href="/eshop" className="hover:text-cream">Eshop</Link></li>
             <li><Link href="/o-vinarstvi" className="hover:text-cream">O vinařství</Link></li>
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
 
         <div className="text-sm leading-relaxed text-cream-2/80">
-          <div className="mb-3 font-serif text-base text-cream">Vína</div>
+          <div className="mb-3 font-serif text-base font-bold text-cream">Vína</div>
           <div className="flex flex-wrap gap-2">
             {categoryTags.map((c) => (
               <Link
