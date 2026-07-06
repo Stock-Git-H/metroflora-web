@@ -162,7 +162,13 @@ export default async function HomePage() {
       <div className="relative h-80 w-full sm:h-96">
         <iframe
           title="Mapa — Dubňanská 376, Milotice"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=17.1206502,48.9496895,17.1326502,48.9576895&marker=48.9536895,17.1266502"
+          src={
+            process.env.GOOGLE_MAPS_EMBED_KEY
+              ? `https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_EMBED_KEY}&q=${encodeURIComponent(
+                  "Dubňanská 376, 696 05 Milotice"
+                )}`
+              : "https://www.openstreetmap.org/export/embed.html?bbox=17.1206502,48.9496895,17.1326502,48.9576895&marker=48.9536895,17.1266502"
+          }
           loading="lazy"
           className="h-full w-full border-0"
         />
