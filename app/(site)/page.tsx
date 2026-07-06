@@ -135,7 +135,7 @@ export default async function HomePage() {
             <div className="mb-6 flex items-baseline gap-3">
               <span className="text-xs tracking-[0.15em] text-gold-dark">KONTAKT</span>
               <span className="text-gold-dark">|</span>
-              <h2 className="text-2xl text-ink">Spojte se s námi</h2>
+              <h2 className="text-xl text-ink">Spojte se s námi</h2>
             </div>
             <div className="space-y-4">
               <div className="rounded-xl border border-border bg-cream p-5">
@@ -157,7 +157,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div>
-            <h3 className="mb-4 text-lg text-ink">Napište nám zprávu</h3>
+            <h3 className="mb-4 text-xl text-ink">Napište nám zprávu</h3>
             <ContactForm />
           </div>
         </div>
