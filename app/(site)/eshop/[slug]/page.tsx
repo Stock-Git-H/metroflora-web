@@ -4,7 +4,7 @@ import { categoryLabels } from "@/data/wines";
 import AddToCartPanel from "@/components/AddToCartPanel";
 import WineThumb from "@/components/WineThumb";
 import NutritionButton from "@/components/NutritionButton";
-import { CrystalIcon, ThermometerIcon, DropletWarningIcon } from "@/components/icons";
+import { CrystalIcon, ThermometerIcon, DropletWarningIcon, PinIcon } from "@/components/icons";
 
 export async function generateStaticParams() {
   const wines = await getAllWines();
@@ -32,6 +32,12 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
       <div className="grid gap-10 md:grid-cols-2">
         <div>
           <WineThumb wine={wine} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[2/3]" />
+          {wine.origin && (
+            <div className="mt-4 flex items-start gap-2 text-xs text-ink-muted">
+              <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />
+              <span>{wine.origin}</span>
+            </div>
+          )}
           <div className="mt-4 space-y-2 text-xs text-ink-faint">
             <div className="flex items-start gap-2">
               <CrystalIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />

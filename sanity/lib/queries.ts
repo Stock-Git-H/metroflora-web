@@ -9,6 +9,7 @@ const wineFields = groq`
   harvestType,
   price,
   originalPrice,
+  origin,
   "description": coalesce(description, ""),
   featured,
   soldOut,

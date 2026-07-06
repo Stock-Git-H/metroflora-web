@@ -62,6 +62,12 @@ export default defineType({
       type: "number",
     }),
     defineField({ name: "stockBottles", title: "Sklad (počet lahví)", type: "number" }),
+    defineField({
+      name: "origin",
+      title: "Původ vína",
+      description: "Např. \"Vinařská oblast Morava, podoblast Slovácká, vinařská obec Milotice, viniční trať Šidleny.\"",
+      type: "text",
+    }),
     defineField({ name: "description", title: "Popis", type: "text" }),
     defineField({ name: "tastingNotes", title: "Degustační poznámky", type: "text" }),
     defineField({

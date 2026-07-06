@@ -13,6 +13,7 @@ export interface Wine {
   harvestType: HarvestType;
   price: number;
   originalPrice?: number;
+  origin?: string;
   description: string;
   featured?: boolean;
   soldOut?: boolean;
