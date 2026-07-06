@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 
@@ -12,30 +13,55 @@ const navLinks = [
   { href: "/#kontakt", label: "Kontakt" },
 ];
 
+const PHONE = "+420 602 766 560";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { totalBottles } = useCart();
+  const pathname = usePathname();
 
   return (
     <header className="border-b border-border bg-cream">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Vinařství Metroflora" width={40} height={40} />
-          <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg tracking-wide text-ink">Vinařství Metroflora</span>
-            <span className="text-[10px] tracking-[0.15em] text-ink-faint">MILOTICE · OD 2007</span>
-          </span>
+          <Image src="/logo.svg" alt="Metroflora" width={60} height={60} />
+          <span className="font-serif text-2xl font-bold tracking-wide text-ink">METROFLORA</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 text-sm text-ink-soft md:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-ink">
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-8 text-sm text-ink-soft md:flex">
+          {navLinks.map((link) => {
+            const isActive = link.href !== "/#kontakt" && pathname === link.href;
+            return (
+              <div key={link.href} className="group relative py-1">
+                <Link href={link.href} className="transition-colors hover:text-ink">
+                  {link.label}
+                </Link>
+                <Image
+                  src="/hrozen-pikto.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={16}
+                  height={14}
+                  className={`pointer-events-none absolute left-1/2 top-full -translate-x-1/2 transition-opacity duration-300 ${
+                    isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                  }`}
+                />
+              </div>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
+          <a
+            href={`tel:${PHONE.replace(/\s/g, "")}`}
+            className="hidden items-center gap-2 text-sm text-ink-soft transition-colors hover:text-ink lg:flex"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+              <path d="M4.5 4h3l1.8 4.5-2 1.5a11.5 11.5 0 0 0 5.7 5.7l1.5-2L19 15.5v3a1 1 0 0 1-1.1 1C10.6 18.9 5.1 13.4 4.5 6.1 4.4 5.5 4.5 4 4.5 4Z" />
+            </svg>
+            {PHONE}
+          </a>
+
           <Link href="/kosik" className="relative text-ink" aria-label="Košík">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +106,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <a href={`tel:${PHONE.replace(/\s/g, "")}`} className="rounded-md px-2 py-2 hover:bg-cream-2">
+            {PHONE}
+          </a>
         </nav>
       )}
     </header>
