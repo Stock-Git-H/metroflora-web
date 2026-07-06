@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCart, BOTTLES_PER_CARTON } from "@/lib/cart-context";
 import QuantityStepper from "@/components/QuantityStepper";
 import CartonSummary from "@/components/CartonSummary";
@@ -8,6 +10,8 @@ import { splitVat } from "@/lib/vat";
 
 export default function KosikPage() {
   const { items, setQuantity, removeItem, totalBottles, totalPrice } = useCart();
+  const [confirmSkip, setConfirmSkip] = useState(false);
+  const router = useRouter();
 
   if (items.length === 0) {
     return (
@@ -76,11 +80,37 @@ export default function KosikPage() {
         )}
       </div>
 
-      <div className="mt-6 flex justify-end">
-        <Link href="/pokladna" className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream">
-          Pokračovat k objednávce
-        </Link>
-      </div>
+      {confirmSkip ? (
+        <div className="mt-6 rounded-xl border border-gold-strong bg-cream-3 p-5">
+          <p className="mb-4 text-sm text-ink">
+            S tímto počtem lahví ({totalBottles} ks) nelze využít přepravní službu — k dispozici
+            bude pouze osobní odběr ve vinařství.
+          </p>
+          <div className="flex flex-wrap justify-end gap-3">
+            <button
+              onClick={() => setConfirmSkip(false)}
+              className="rounded-md border border-border px-6 py-3 text-sm text-ink"
+            >
+              Zpět
+            </button>
+            <Link href="/pokladna" className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream">
+              Přesto pokračovat
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div className="mt-6 flex justify-end">
+          <button
+            onClick={() => {
+              if (notFullCarton) setConfirmSkip(true);
+              else router.push("/pokladna");
+            }}
+            className="rounded-md bg-ink px-6 py-3 text-sm font-medium text-cream"
+          >
+            Pokračovat k objednávce
+          </button>
+        </div>
+      )}
 
       <CartonSummary totalBottles={totalBottles} />
     </div>

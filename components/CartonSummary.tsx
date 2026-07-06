@@ -40,7 +40,7 @@ export default function CartonSummary({ totalBottles }: { totalBottles: number }
 
   return (
     <div className="mt-6">
-      <div className="mb-3 text-xs text-ink-faint">Přehled kartonů (6 lahví)</div>
+      <div className="mb-3 text-xs text-ink-faint">Úplnost kartonů pro odeslání přepravní službou</div>
       <div className="flex flex-wrap gap-3">
         {Array.from({ length: completeCartons }).map((_, i) => (
           <MiniCarton key={`full-${i}`} filled={BOTTLES_PER_CARTON} complete />
