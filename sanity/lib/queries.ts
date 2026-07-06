@@ -12,7 +12,6 @@ const wineFields = groq`
   origin,
   "description": coalesce(description, ""),
   featured,
-  soldOut,
   image,
   nutritionImage,
   bottleVolume,

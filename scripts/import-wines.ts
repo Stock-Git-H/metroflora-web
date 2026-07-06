@@ -36,7 +36,6 @@ async function run() {
       ...(w.originalPrice ? { originalPrice: w.originalPrice } : {}),
       ...(w.description ? { description: w.description } : {}),
       featured: Boolean(w.featured),
-      soldOut: false,
     });
   }
 

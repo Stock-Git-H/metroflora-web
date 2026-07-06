@@ -61,7 +61,6 @@ export default defineType({
       description: "Nepovinné — vyplňte jen pokud je víno ve slevě, cena se pak zobrazí přeškrtnutá.",
       type: "number",
     }),
-    defineField({ name: "stockBottles", title: "Sklad (počet lahví)", type: "number" }),
     defineField({
       name: "origin",
       title: "Původ vína",
@@ -83,7 +82,6 @@ export default defineType({
       type: "image",
     }),
     defineField({ name: "featured", title: "Zobrazit na homepage", type: "boolean", initialValue: false }),
-    defineField({ name: "soldOut", title: "Vyprodáno", type: "boolean", initialValue: false }),
 
     defineField({ name: "bottleVolume", title: "Objem lahve (l)", type: "number", fieldset: "dalsiInformace" }),
     defineField({ name: "alcoholPercent", title: "Obsah alkoholu (% obj.)", type: "number", fieldset: "dalsiInformace" }),

@@ -16,7 +16,6 @@ export interface Wine {
   origin?: string;
   description: string;
   featured?: boolean;
-  soldOut?: boolean;
   image?: SanityImageSource;
   nutritionImage?: SanityImageSource;
   bottleVolume?: number;
