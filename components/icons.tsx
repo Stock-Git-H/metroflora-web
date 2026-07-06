@@ -44,6 +44,34 @@ export function PackageIcon({ className }: IconProps) {
   );
 }
 
+export function CrystalIcon({ className }: IconProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className={className}>
+      <path d="M6 9h12l-6 12z" />
+      <path d="M9 3h6l3 6H6z" />
+      <path d="M6 9l3-6M18 9l-3-6M9 9l3 12M15 9l-3 12" />
+    </svg>
+  );
+}
+
+export function ThermometerIcon({ className }: IconProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className={className}>
+      <path d="M12 14.5V5a2 2 0 1 0-4 0v9.5a4 4 0 1 0 4 0z" />
+      <circle cx="10" cy="17" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function DropletWarningIcon({ className }: IconProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" className={className}>
+      <path d="M12 3s6 7 6 11.5a6 6 0 1 1-12 0C6 10 12 3 12 3z" />
+      <path d="M12 10.5v4M12 16.8v.2" />
+    </svg>
+  );
+}
+
 export function BottleSilhouette({ className }: IconProps) {
   return (
     <svg width="14" height="42" viewBox="0 0 100 300" fill="currentColor" className={className}>

@@ -19,17 +19,21 @@ export default function NutritionButton({ image }: { image: SanityImageSource })
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        aria-label="Výživové údaje"
-        title="Výživové údaje"
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-ink-soft"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-          <rect x="4" y="3" width="16" height="18" rx="2" />
-          <path d="M7.5 8h9M7.5 12h9M7.5 16h5" />
-        </svg>
-      </button>
+      <div className="group relative inline-block">
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Výživové údaje"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-ink-soft"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+            <rect x="4" y="3" width="16" height="18" rx="2" />
+            <path d="M7.5 8h9M7.5 12h9M7.5 16h5" />
+          </svg>
+        </button>
+        <span className="pointer-events-none absolute left-1/2 top-full z-10 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink px-2 py-1 text-xs text-cream opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          Výživové údaje
+        </span>
+      </div>
 
       {open && (
         <div

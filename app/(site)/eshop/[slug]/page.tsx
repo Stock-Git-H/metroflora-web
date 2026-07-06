@@ -4,6 +4,7 @@ import { categoryLabels } from "@/data/wines";
 import AddToCartPanel from "@/components/AddToCartPanel";
 import WineThumb from "@/components/WineThumb";
 import NutritionButton from "@/components/NutritionButton";
+import { CrystalIcon, ThermometerIcon, DropletWarningIcon } from "@/components/icons";
 
 export async function generateStaticParams() {
   const wines = await getAllWines();
@@ -30,7 +31,23 @@ export default async function WineDetailPage({ params }: { params: Promise<{ slu
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-8">
       <div className="grid gap-10 md:grid-cols-2">
-        <WineThumb wine={wine} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[2/3]" />
+        <div>
+          <WineThumb wine={wine} sizes="(min-width: 768px) 50vw, 100vw" className="aspect-[2/3]" />
+          <div className="mt-4 space-y-2 text-xs text-ink-faint">
+            <div className="flex items-start gap-2">
+              <CrystalIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />
+              <span>Případné vysrážení vinného kamene není závadou vína.</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <ThermometerIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />
+              <span>Skladovací teplota 10–12 °C</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <DropletWarningIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />
+              <span>Obsahuje oxid siřičitý.</span>
+            </div>
+          </div>
+        </div>
 
         <div>
           <div className="mb-2 text-xs tracking-[0.15em] text-gold-dark">
