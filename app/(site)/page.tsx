@@ -113,8 +113,9 @@ export default async function HomePage() {
       {farmProducts.length > 0 && (
         <section className="bg-sage-tint">
           <div className="mx-auto max-w-6xl px-4 py-12 sm:px-8">
-            <div className="mb-6">
-              <div className="mb-2 text-xs tracking-[0.15em] text-sage">PRODEJ ZE DVORA</div>
+            <div className="mb-6 flex items-baseline gap-3">
+              <span className="text-xs tracking-[0.15em] text-sage">PRODEJ ZE DVORA</span>
+              <span className="text-sage">|</span>
               <h2 className="text-xl text-ink">Aktuálně nabízíme</h2>
             </div>
             <div className={`grid gap-6 ${farmGridCols[farmProducts.length]}`}>
@@ -131,8 +132,11 @@ export default async function HomePage() {
       <section id="kontakt" className="scroll-mt-20 bg-cream-2">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-8 md:grid-cols-2">
           <div>
-            <div className="mb-2 text-xs tracking-[0.15em] text-gold-dark">KONTAKT</div>
-            <h2 className="mb-6 text-2xl text-ink">Spojte se s námi</h2>
+            <div className="mb-6 flex items-baseline gap-3">
+              <span className="text-xs tracking-[0.15em] text-gold-dark">KONTAKT</span>
+              <span className="text-gold-dark">|</span>
+              <h2 className="text-2xl text-ink">Spojte se s námi</h2>
+            </div>
             <div className="space-y-4">
               <div className="rounded-xl border border-border bg-cream p-5">
                 <h3 className="mb-2 font-serif text-base text-ink">METROFLORA s.r.o.</h3>
