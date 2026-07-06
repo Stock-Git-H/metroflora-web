@@ -21,6 +21,28 @@ const vlastniOdrudy = [
 
 const trate = ["Kopce", "Šidleny", "Zášidlení"];
 
+const oceneni = [
+  { year: "2008", text: "Chardonnay ps 2007 — šampion výstavy Vinum Juvenale" },
+  { year: "2009", text: "Salon vín ČR — Rulandské bílé, výběr z hroznů" },
+  {
+    year: "2010",
+    text: "Salon vín ČR — Ryzlink rýnský ps 2008; 3. místo v soutěži Vinař roku",
+  },
+  { year: "2011", text: "Salon vín ČR — Sylvánské zelené, výběr z hroznů 2009" },
+  {
+    year: "2012",
+    text: "Salon vín ČR — Hibernal PS, Tramín červený PS a Sylvánské zelené PS, ročník 2010",
+  },
+  {
+    year: "2013",
+    text: "Salon vín ČR — Cabernet Sauvignon, výběr z hroznů 2009; Cena hejtmana Jihomoravského kraje za nejlépe hodnocenou kolekci vín, Vinum Juvenale 2013",
+  },
+  {
+    year: "2014",
+    text: "Salon vín ČR — Aurelius, výběr z hroznů 2011; Pálava, ledové víno 2011",
+  },
+];
+
 export default function OVinarstviPage() {
   return (
     <div className="relative mx-auto max-w-3xl overflow-hidden px-4 py-14 sm:px-8">
@@ -30,6 +52,12 @@ export default function OVinarstviPage() {
         <h1 className="mb-6 font-serif text-3xl text-ink">Metroflora</h1>
 
       <div className="space-y-4 text-sm leading-relaxed text-ink-muted">
+        <p>
+          Společnost METROFLORA vznikla už v roce 1997 jako velkoobchodní prodejce živých
+          řezaných i pokojových květin — dvakrát týdně dovážela čerstvé květiny z holandské burzy
+          a rozvážela je do květinářství po celé Moravě. V roce 2017 oslavila dvacáté výročí
+          založení.
+        </p>
         <p>
           Vinařství Metroflora založil v roce 2007 Lubomír Gregorovič, který zúročil letité
           zkušenosti ve výrobě vína, přenášející se z generace na generaci.
@@ -54,6 +82,11 @@ export default function OVinarstviPage() {
           šetrnou technologií Della Toffola v moderní zrekonstruované provozovně, kde vzniká víno
           nejvyšší kvality, na čemž si Metroflora zakládá.
         </p>
+        <p>
+          Vinařské úspěchy přišly rychle — na první profesionální výstavě mladých vín Vinum
+          Juvenale ročníku 2007 získalo víno Chardonnay pozdní sběr titul šampiona výstavy,
+          standard, který se vinařství snaží držet dodnes.
+        </p>
       </div>
 
       <div className="mt-10 rounded-xl border border-border p-6">
@@ -68,6 +101,17 @@ export default function OVinarstviPage() {
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="mt-6 rounded-xl border border-border p-6">
+        <h2 className="mb-4 font-serif text-lg text-ink">Ocenění</h2>
+        <ul className="space-y-2 text-sm text-ink-muted">
+          {oceneni.map(({ year, text }) => (
+            <li key={year}>
+              <span className="font-medium text-ink">{year}</span> — {text}
+            </li>
+          ))}
+        </ul>
       </div>
       </div>
     </div>
