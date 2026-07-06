@@ -69,7 +69,6 @@ export default defineType({
       type: "text",
     }),
     defineField({ name: "description", title: "Popis", type: "text" }),
-    defineField({ name: "tastingNotes", title: "Degustační poznámky", type: "text" }),
     defineField({
       name: "image",
       title: "Fotografie lahve",

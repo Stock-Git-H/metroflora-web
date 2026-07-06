@@ -31,8 +31,7 @@ export const allWinesQuery = groq`
 
 export const wineBySlugQuery = groq`
   *[_type == "wine" && slug.current == $slug && active != false][0] {
-    ${wineFields},
-    tastingNotes
+    ${wineFields}
   }
 `;
 
